@@ -1,0 +1,33 @@
+//Question1:
+def evenlist(lst):
+    return [i for i in lst if i%2==0]
+
+//Question2:
+def timer(func):
+    def wrapper():
+        t1 = time()
+        result = func()
+        t2 = time()
+        print(f'Time taken = {(t2 - t1)}')
+        return result
+    return wrapper
+
+@timer
+def timecal():
+    print("This is inside the function")
+    return "Function executed successfully"
+
+timecal()
+
+//Question3:
+def calculate_mean(numbers):
+    sum=0
+    for i in numbers:
+        sum+=i
+    return sum/len(numbers)
+
+//Question 4:
+from scipy.stats import ttest_ind
+def perform_hypothesis_test(sample1,sample2):
+    t_test,p_value=ttest_ind(sample1,sample2)
+    return p_value
